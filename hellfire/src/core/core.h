@@ -35,8 +35,8 @@ typedef unsigned int b32;
 #else
 #define HF_DEBUGBREAK() __builtin_trap()
 #endif
-#define HF_CORE_ASSERT(x) if(!(x)) { HF_CORE_LOG("Assertion failed at %s:%d: \"%s\"", __FILE__, __LINE__, #x); HF_DEBUGBREAK(); }
-#define HF_ASSERT(x) if(!(x)) { HF_LOG("Assertion failed at %s:%d: \"%s\"", __FILE__, __LINE__, #x); HF_DEBUGBREAK(); }
+#define HF_CORE_ASSERT(x) if(!(x)) { HF_CORE_FATAL("Assertion failed at %s:%d: \"%s\"", __FILE__, __LINE__, #x); HF_DEBUGBREAK(); }
+#define HF_ASSERT(x) if(!(x)) { HF_FATAL("Assertion failed at %s:%d: \"%s\"", __FILE__, __LINE__, #x); HF_DEBUGBREAK(); }
 #else
 #define HF_ASSERT(x)
 #endif
