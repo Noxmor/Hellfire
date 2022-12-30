@@ -32,4 +32,4 @@ POPD
 
 gcc %OBJ_FILES% -o bin/%assembly%.exe %INCLUDES% %DEFINES% %LINKS%
 
-if %ERRORLEVEL% NEQ 0 (exit /b) else (echo Successfully builded %assembly%!)
+if %ERRORLEVEL% NEQ 0 (exit /b) else (echo Successfully built %assembly%!)

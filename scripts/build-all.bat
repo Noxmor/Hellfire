@@ -20,4 +20,4 @@ POPD
 POPD
 if %ERRORLEVEL% NEQ 0 (exit /b)
 
-echo Successfully builded all assemblies!
+echo Successfully built all assemblies!

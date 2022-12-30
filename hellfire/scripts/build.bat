@@ -29,4 +29,4 @@ POPD
 
 ar rcs bin/%assembly%.lib %OBJ_FILES%
 
-if %ERRORLEVEL% NEQ 0 (exit /b) else (echo Successfully builded %assembly%!)
+if %ERRORLEVEL% NEQ 0 (exit /b) else (echo Successfully built %assembly%!)
