@@ -1,6 +1,8 @@
 #ifndef HF_CORE_H
 #define HF_CORE_H
 
+#include "core/log.h"
+
 typedef float f32;
 typedef double f64;
 
@@ -27,7 +29,14 @@ typedef unsigned int b32;
 #endif
 
 #ifdef HF_ENABLE_ASSERTS
-#define HF_ASSERT(x) if(!(x)) exit(1)
+#ifdef _MSC_VER
+#include <intrin.h>
+#define HF_DEBUGBREAK() __debugbreak()
+#else
+#define HF_DEBUGBREAK() __builtin_trap()
+#endif
+#define HF_CORE_ASSERT(x) if(!(x)) { HF_CORE_LOG("Assertion failed at %s:%d: \"%s\"", __FILE__, __LINE__, #x); HF_DEBUGBREAK(); }
+#define HF_ASSERT(x) if(!(x)) { HF_LOG("Assertion failed at %s:%d: \"%s\"", __FILE__, __LINE__, #x); HF_DEBUGBREAK(); }
 #else
 #define HF_ASSERT(x)
 #endif
