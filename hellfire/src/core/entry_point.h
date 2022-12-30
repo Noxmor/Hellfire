@@ -1,7 +1,6 @@
 #ifndef HF_ENTRY_POINT_H
 #define HF_ENTRY_POINT_H
 
-#include <stdlib.h>
 #include <stdio.h>
 
 #include "core/core.h"
@@ -18,7 +17,7 @@ int main(void)
 	application_run(app);
 
 	printf("Shutting down application...\n");
-	free(app);
+	application_shutdown(app);
 }
 
 #endif

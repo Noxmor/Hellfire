@@ -15,4 +15,6 @@ void application_run(Application* app);
 
 void application_close(Application* app);
 
+void application_shutdown(Application* app);
+
 #endif
