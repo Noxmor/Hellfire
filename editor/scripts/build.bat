@@ -1,9 +1,10 @@
 @echo off
 SetLocal EnableDelayedExpansion
 
-cd ..
+cd ../
 
 if not exist bin mkdir bin
+if not exist bin-int mkdir bin-int
 
 SET LIB_PATH=../hellfire/bin/
 
@@ -13,11 +14,22 @@ for /R %%f in (*.c) do (
 )
 
 SET FLAGS=-Wall -Wextra -O3
-SET INCLUDES=-Isrc -I../hellfire/src/
+SET INCLUDES=-I../src -I../../hellfire/src/
 SET DEFINES=-DHF_ENABLE_ASSERTS
 SET LINKS=-L%LIB_PATH% -lHellfire
 
-SET assembly=editor
+SET assembly=Hellfire-Editor
 echo Building %assembly%...
-gcc %FILES% %FLAGS% -o bin/%assembly%.exe %INCLUDES% %DEFINES% -static %LINKS%
+
+PUSHD bin-int
+gcc %FILES% %FLAGS% -c %INCLUDES% %DEFINES% %LINKS%
+
+SET OBJ_FILES= 
+for /R %%f in (*.o) do (
+	SET OBJ_FILES=!OBJ_FILES! %%f
+)
+POPD
+
+gcc %OBJ_FILES% -o bin/%assembly%.exe %INCLUDES% %DEFINES% %LINKS%
+
 if %ERRORLEVEL% NEQ 0 (exit /b) else (echo Successfully builded %assembly%!)
