@@ -1,5 +1,7 @@
 #include "hellfire.h"
 
+#include <stdlib.h>
+
 Application* application_create(void)
 {
 	Application* app = malloc(sizeof(Application));

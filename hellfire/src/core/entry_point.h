@@ -5,18 +5,19 @@
 
 #include "core/core.h"
 #include "core/application.h"
+#include "core/log.h"
 
 extern Application* application_create(void);
 
 int main(void)
 {
-	printf("Creating application...\n");
+	logger_log("Creating application...\n");
 	Application* app = application_create();
 
-	printf("Running application..\n");
+	logger_log("Running application...\n");
 	application_run(app);
 
-	printf("Shutting down application...\n");
+	logger_log("Shutting down application...\n");
 	application_shutdown(app);
 }
 
