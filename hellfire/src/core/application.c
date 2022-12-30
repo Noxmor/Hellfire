@@ -11,8 +11,10 @@ void application_run(Application* app)
 	while (app->running)
 	{
 		HF_CORE_INFO("Running application...");
-		break;
+		application_close(app);
 	}
+
+	HF_CORE_ASSERT(app->running == HF_FALSE);
 }
 void application_close(Application* app)
 {
