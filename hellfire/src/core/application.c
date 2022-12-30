@@ -3,20 +3,25 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+#include "core/log.h"
+
 void application_run(Application* app)
 {
 	app->running = HF_TRUE;
 	while (app->running)
 	{
+		HF_CORE_LOG("Running application...");
 		break;
 	}
 }
 void application_close(Application* app)
 {
+	HF_CORE_LOG("Closing application...");
 	app->running = HF_FALSE;
 }
 
 void application_shutdown(Application* app)
 {
+	HF_CORE_LOG("Shutting down application...");
 	free(app);
 }
