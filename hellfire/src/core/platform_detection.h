@@ -1,7 +1,6 @@
 #ifndef HF_PLATFORM_DETECTION_H
 #define HF_PLATFORM_DETECTION_H
 
-
 #if defined(WIN32) || defined(_WIN32) || defined(__WIN32__)
 #define HF_PLATFORM_WINDOWS
 #ifndef _WIN64
