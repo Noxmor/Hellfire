@@ -38,6 +38,7 @@ typedef unsigned int b32;
 #define HF_CORE_ASSERT(x) if(!(x)) { HF_CORE_FATAL("Assertion failed at %s:%d: \"%s\"", __FILE__, __LINE__, #x); HF_DEBUGBREAK(); }
 #define HF_ASSERT(x) if(!(x)) { HF_FATAL("Assertion failed at %s:%d: \"%s\"", __FILE__, __LINE__, #x); HF_DEBUGBREAK(); }
 #else
+#define HF_CORE_ASSERT(x)
 #define HF_ASSERT(x)
 #endif
 
